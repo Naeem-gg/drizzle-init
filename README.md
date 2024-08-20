@@ -1,6 +1,6 @@
 # drizzle-init
 
-![Keep Drizzling](https://img.shields.io/badge/Keep-Drizzling-yellow)
+![Naeemgg](https://img.shields.io/badge/Naeemgg-yellow)
 
 `drizzle-init` is a CLI tool designed to initialize a Drizzle ORM setup with various database configurations, including PostgreSQL, SQLite, and MySQL. This tool simplifies the process of creating the necessary configuration files and folders for your Drizzle-based project.
 
@@ -101,5 +101,3 @@ This project is licensed under the ISC License.
 ## Acknowledgments
 
 Special thanks to the developers of Drizzle ORM and the open-source community for their contributions.
-
-
