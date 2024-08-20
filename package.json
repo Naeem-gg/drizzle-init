@@ -1,8 +1,11 @@
 {
   "name": "drizzle-init",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "minimalist starter template to get started with drizzle-orm",
   "main": "index.js",
+  "repository": {
+    "url": "https://github.com/Naeem-gg/drizzle-init.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:pull": "drizzle-kit introspect",
