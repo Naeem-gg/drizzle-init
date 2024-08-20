@@ -1,21 +1,13 @@
 {
   "name": "drizzle-init",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "minimalist starter template to get started with drizzle-orm",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/Naeem-gg/drizzle-init.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "db:pull": "drizzle-kit introspect",
-    "db:push": "drizzle-kit push",
-    "db:migrate": "drizzle-kit migrate",
-    "db:generate": "drizzle-kit generate",
-    "db:drop": "drizzle-kit drop",
-    "db:up": "drizzle-kit up",
-    "db:check": "drizzle-kit check",
-    "db:studio": "drizzle-kit studio"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "drizzle-init": "./index.js"
@@ -34,8 +26,6 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
-    "drizzle-kit": "^0.24.0",
-    "drizzle-orm": "^0.33.0",
     "figlet": "^1.7.0",
     "inquirer": "^10.1.8"
   }
