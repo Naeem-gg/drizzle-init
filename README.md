@@ -41,7 +41,7 @@ This will prompt you to choose your database and provider, and automatically gen
 ### Example
 
 ```bash
-$ drizzle-init
+$ npx drizzle-init
 
 Choose your database?
 > postgresql

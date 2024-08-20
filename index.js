@@ -8,6 +8,8 @@ import fs from "fs";
 import { updateScripts } from "./utils/updateScripts.js";
 import { tagline } from "./utils/tagline.js";
 import { drizzleConfig } from "./utils/drizzleConfig.js";
+import { schemaContent } from "./utils/schemaContent.js";
+import { dbContent } from "./utils/dbContent.js";
 
 let PROVIDER, DATABASE, SCRIPTS, ENV;
 
@@ -104,33 +106,34 @@ program.action(async () => {
       console.log(
         `Directory 'drizzle' and 'migrations' was created successfully.`,
       );
+      fs.writeFile(
+        "drizzle/schema.ts",
+        schemaContent(DATABASE.choose,PROVIDER.choose),
+        "utf8",
+        (e) => {
+          if (e) {
+            console.error(`An error occurred while creating the directory: ${e}`);
+          } else {
+            console.log(`${chalk.green("schema.ts")} was created successfully.`);
+          }
+        },
+      );
+      fs.writeFile(
+        "drizzle/db.ts",
+        dbContent(DATABASE.choose,PROVIDER.choose),
+        "utf8",
+        (e) => {
+          if (e) {
+            console.error(`An error occurred while creating the directory: ${e}`);
+          } else {
+            console.log(`${chalk.green("db.ts")} was created successfully.`);
+          }
+        },
+      );
     }
   });
 
-  fs.writeFile(
-    "drizzle/schema.ts",
-    "import something from 'drizzle-orm'",
-    "utf8",
-    (e) => {
-      if (e) {
-        console.error(`An error occurred while creating the directory: ${e}`);
-      } else {
-        console.log(`${chalk.green("schema.ts")} was created successfully.`);
-      }
-    },
-  );
-  fs.writeFile(
-    "drizzle/db.ts",
-    "import something from 'drizzle-orm'",
-    "utf8",
-    (e) => {
-      if (e) {
-        console.error(`An error occurred while creating the directory: ${e}`);
-      } else {
-        console.log(`${chalk.green("db.ts")} was created successfully.`);
-      }
-    },
-  );
+  
 
   fs.writeFile(
     "drizzle.config.ts",
