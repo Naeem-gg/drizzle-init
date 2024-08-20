@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-init",
+  "version": "0.0.1",
+  "description": "minimalist starter template to get started with drizzle-orm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "drizzle",
+    "drizzle-orm",
+    "drizzle-kit",
+    "postgresql",
+    "mysql",
+    "sqlite"
+  ],
+  "author": "naeemgg",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
