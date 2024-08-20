@@ -13,7 +13,7 @@ let PROVIDER, DATABASE, SCRIPTS, ENV;
 
 tagline("Keep Drizzling");
 
-program.version("0.0.4").description("drizzle-init CLI");
+program.version("0.0.5").description("drizzle-init CLI");
 
 program.action(async () => {
   DATABASE = await inquirer.prompt([
