@@ -1,2 +1,4 @@
 node_modules/
-drizzle*
+drizzle/
+drizzle.config.ts
+.env*
