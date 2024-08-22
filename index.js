@@ -1,21 +1,19 @@
 #!/usr/bin/env node
 
-import { program } from "commander";
 import chalk from "chalk";
-import inquirer from "inquirer";
+import { program } from "commander";
 import fs from "fs";
-
-import { updateScripts } from "./utils/updateScripts.js";
-import { tagline } from "./utils/tagline.js";
+import inquirer from "inquirer";
+import { dbContent } from "./utils/db.js";
 import { drizzleConfig } from "./utils/drizzleConfig.js";
 import { schemaContent } from "./utils/schema.js";
-import { dbContent } from "./utils/db.js";
+import { tagline } from "./utils/tagline.js";
+import { updateScripts } from "./utils/updateScripts.js";
 
-let PROVIDER, DATABASE, SCRIPTS, ENV;
+let PROVIDER, DATABASE, SCRIPTS, ENV,VERSION,DESCRIPTION;
 
 tagline("drizzle-init");
-
-program.version("0.0.10").description("drizzle-init CLI");
+// getVersion().then(r=>{program.version(r.version).description(r.desc);}).catch(console.error);
 async function runCLI() {
     try {
         program.action(async () => {

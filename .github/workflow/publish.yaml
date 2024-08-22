@@ -1,0 +1,22 @@
+- uses: actions/setup-node@v3
+  with:
+    node-version: '20.x'
+    registry-url: 'https://www.npmjs.com/package/drizzle-init' # <-- the registry-url here is required
+
+# ...[build & test etc]...
+
+# Bump the version & push (if you're not doing that elsewhere)
+- name: Bump version & push
+  run: |
+    git config --global user.name 'Automated publish'
+    git config --global user.email 'naeem-gg@users.noreply.github.com'
+
+    # Update the version in package.json, and commit & tag the change:
+    npm version patch # YMMV - you might want the semver level as a workflow input
+
+    git push && git push --tags
+
+# Publish the result to npm with your granular token:
+- run: npm publish
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.DRIZZLE_INIT_ACCESS_TOKEN }}
