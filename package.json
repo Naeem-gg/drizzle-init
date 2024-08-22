@@ -1,6 +1,6 @@
 {
   "name": "drizzle-init",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "minimalist starter template to get started with drizzle-orm",
   "main": "index.js",
   "repository": {
@@ -22,7 +22,7 @@
     "sqlite"
   ],
   "author": "naeemgg",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
