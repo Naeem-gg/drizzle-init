@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import fs from "fs";
 import path from "path";
 
@@ -5,6 +6,9 @@ export const updateScripts = async () => {
 	const packageJsonPath = path.join(process.cwd(), "package.json");
 	fs.readFile(packageJsonPath, "utf8", async (err, data) => {
 		if (err) {
+			console.log(chalk.red("Looks like package.json file is not present in the current directory"))
+			console.log(chalk.green("you can create it with following command:"))
+			console.log(chalk.green("npm init"))
 			console.error(`Error reading package.json: ${err}`);
 			return;
 		}
@@ -36,8 +40,6 @@ export const updateScripts = async () => {
 				console.error(`Error writing package.json: ${writeErr}`);
 			} else {
 				console.log("package.json has been updated successfully.");
-				// console.log("following scripts are added")
-				// console.log(chalk.yellowBright(JSON.stringify(packageJson.scripts).split(",")))
 			}
 		});
 	});

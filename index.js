@@ -15,7 +15,7 @@ let PROVIDER, DATABASE, SCRIPTS, ENV;
 
 tagline("drizzle-init");
 
-program.version("0.0.8").description("drizzle-init CLI");
+program.version("0.0.9").description("drizzle-init CLI");
 async function runCLI() {
     try {
         program.action(async () => {
