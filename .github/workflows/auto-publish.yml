@@ -1,7 +1,5 @@
 name: Publish drizzle-init to npmjs
-on:
-  release:
-    types: [published]
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
