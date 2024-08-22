@@ -18,7 +18,7 @@
 - **Database Support**: Configure your project for PostgreSQL, SQLite, or MySQL.
 - **Automated Setup**: Automatically creates necessary directories and files, including `drizzle.config.ts`, `schema.ts`, and `db.ts`.
 - **Custom Configuration**: Choose from various database providers and customize the generated configuration based on your project requirements.
-
+- **Custom Scripts**: automatically adds useful database management scripts to your `package.json`.
 ## Installation
 
 To install `drizzle-init`, you can clone the repository and install dependencies:
@@ -92,6 +92,22 @@ After running the CLI, your project structure will look like this:
 - **`drizzle.config.ts`**: Contains the configuration for Drizzle ORM based on the database and provider you selected.
 - **`schema.ts`**: Placeholder for your database schema.
 - **`db.ts`**: Contains the setup for connecting to your database.
+
+## Scripts
+
+The `drizzle-init` tool automatically adds useful database management scripts to your `package.json`:
+
+- **`db:pull`**: Introspect the database schema.
+- **`db:push`**: Apply the latest changes to the database.
+- **`db:migrate`**: Run pending migrations.
+- **`db:generate`**: Generate types and migrations based on your schema.
+- **`db:drop`**: Drop the current database schema.
+- **`db:up`**: Apply all migrations to bring the database up to date.
+- **`db:check`**: Verify the database state against the schema.
+- **`db:studio`**: Launch a database management studio for interaction.
+
+These scripts help streamline database operations and ensure consistency across your development workflow.
+
 
 ## Contributing
 
