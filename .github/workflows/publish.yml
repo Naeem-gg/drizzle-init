@@ -1,0 +1,22 @@
+- uses: actions/setup-node@v3
+  with:
+    node-version: '20.x'
+    registry-url: 'https://registry.npmjs.org/'
+
+# Install dependencies
+- run: npm install
+
+# Build and test steps...
+
+# Bump version & push
+- name: Bump version & push
+  run: |
+    git config --global user.name 'Automated publish'
+    git config --global user.email 'naeem-gg@users.noreply.github.com'
+    npm version patch
+    git push && git push --tags
+
+# Publish to npm
+- run: npm publish
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.DRIZZLE_INIT_ACCESS_TOKEN }}
