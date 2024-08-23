@@ -1,6 +1,6 @@
 {
   "name": "drizzle-init",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "minimalist starter template to get started with drizzle-orm",
   "main": "index.js",
   "repository": {
