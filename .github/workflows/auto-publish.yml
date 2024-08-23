@@ -1,19 +1,34 @@
-name: Publish drizzle-init to npmjs
-on: push
+#.github/workflows/auto-publish.yml
+name: auto-publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
 jobs:
-  build:
+  auto-puplish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish --provenance --access public
+
+      - name: Bump version & push
+        run: |
+          git config --global user.name 'Automated publish'
+          git config --global user.email 'naeem-gg@users.noreply.github.com'
+
+          # Update the version in package.json, and commit & tag the change:
+          npm version patch # YMMV - you might want the semver level as a workflow input
+
+          git push && git push --tags
+
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.DRIZZLE_INIT_ACCESS_TOKENKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
